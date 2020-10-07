@@ -1,0 +1,87 @@
+class player {
+	field int posicao;//posição em que a nave será desenhada, dada a fórmula:((y*32)+(x))
+	field int y;
+	field int x;
+	field int x1;
+	field int x2;
+	static int playerX;//para usar na função getX().
+	
+	//----------------------------Criando objeto----------------------------------------------------------------------------------
+	/** criar um objeto player */
+	
+	constructor player new(int ay, int ax){//Cria objeto player.
+		let x = ax;
+		let y = ay;
+		let posicao = ((y*32)+(x));   //formula da posição na tela de pixels.
+		let playerX = x;			  //atribuindo o valor de x para a variável estática playerX.
+		do sprites.spaceShip(posicao);//Textura da nave (player) que será exibida na tela.
+		return this;
+	}
+
+	
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+	//-------------------------------------------------END------------------------------------------------------------------------
+	
+	
+	//----------------------------MOVIMENTAÇÃO--------------------------------------------------------------------------------------
+	/** Métodos para permitir movimentação do player para esquerda ou direita. */
+	
+	method void moverParaDireita(){//move o player para direita, se possível.
+		if (x < 31){//estabelecendo limite direito da tela.
+			let x = x+1;//encremento de x, cada x = 16 pixels, neste caso para a direita.
+			let posicao = ((y*32)+(x)); //re-calculando a posição.
+			let playerX = x;//atualizando a variável playerX com a posição atual do player.
+			do sprites.spaceShip(posicao);//"desenhando" a textura da nave (player) para a nova posição x+1.
+			do sprites.spaceShipErase(posicao-1);//"apagando" a textura passada da nave, a textura x-1.
+		}
+		return;
+	}
+	
+	method void moverParaEsquerda(){//mesma lógica da primeira função de movimento, porem inversa, para esquerda.
+		if (x > 0){ //limite esquerdo da tela é 0.
+			let x = x-1;
+			let posicao = ((y*32)+(x));
+			let playerX = x;
+			do sprites.spaceShip(posicao);
+			do sprites.spaceShipErase(posicao+1);
+		}
+		return;
+	}
+	//------------------------------END------------------------------------------------------------------------------------------------
+	
+	function int getX(){//retorna a posição do player
+		return playerX;
+	}
+	
+	
+	//---------------------------------------------------------ATIRAR---------------------------------------------------------------	
+	/** Responsável por executar um disparo, e se este disparo acertar um inimigo(alien) o mesmo será destruído.*/
+	
+	method boolean atirar(){
+		// y=224 = posição y do player.
+		var int playerPosition;//posição do player.
+		var int enemyPosition;//posição do inimigo.
+		
+		let x1 = (x*16)+7; // alinhando o "lazer" de disparo para o meio da nave player.
+		let x2 = (x*16)+7; // posção destino do "lazer" partindo do meio da nave do player para o topo da tela.
+		do Screen.setColor(true);//true = deixar os pixeis pretos.
+		do Screen.drawLine(x1,224,x2,0);//desenha uma linha do ponto x1,y1 ao ponto x2,y2, neste caso do player para o topo da tela.
+		do Sys.wait(90);//pausa para possibilitar que quem estiver jogando veja o "lazer".
+		do Screen.setColor(false);//false= deixar os pixeis brancos, ou apagar.
+		do Screen.drawLine(x1,224,x2,0);//apagando os pixeis anteriormente desenhados na tela.
+		//lógica para acertar o alvo
+		let enemyPosition = enemy.getEnemyX();//temos a posição X do alienigena.
+		let playerPosition = playerX;//temos a posição X do player.
+		if (playerPosition = enemyPosition){//se a posição X do player for a mesma do inimigo, e se executada a função de tiro, o inimigo é destruido.
+			do enemy.spaceshipDestroy();//apaga a textura do inimigo.
+			return true;//retorna verdadeiro se o inimigo foi destruido.
+		}
+		
+		return false;//se não foi destruido retorna falso.
+	}
+
+	//----------------------------------------------------------END------------------------------------------------------------------
+}

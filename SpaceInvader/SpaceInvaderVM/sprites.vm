@@ -1,0 +1,417 @@
+function sprites.spaceShip 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 448
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 992
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1712
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 2728
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 8188
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 11290
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 20473
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 20473
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 20613
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 24707
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 16513
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 18889
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 18889
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function sprites.spaceShipErase 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function sprites.spaceShipAlien 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 2016
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 385
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 16381
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 13261
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 13261
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 24582
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 12300
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 7128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 19892
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 9832
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 5072
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 2464
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 5200
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 2720
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1344
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function sprites.spaceShipAlienErase 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return

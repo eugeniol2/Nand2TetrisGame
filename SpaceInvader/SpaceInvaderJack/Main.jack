@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+        var spaceinvadergame game;
+        let game = spaceinvadergame.new();//iniciando jogo.
+        do game.run();//função "core" do jogo.
+        do game.dispose();
+        return;
+    }
+}

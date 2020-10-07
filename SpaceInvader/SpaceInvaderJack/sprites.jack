@@ -1,0 +1,95 @@
+class sprites{
+	
+	/** Pasta para guardar todas as texturas do jogo */
+	
+	function void spaceShip(int location) {// nave do player
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 128);
+		do Memory.poke(memAddress+32, 448);
+		do Memory.poke(memAddress+64, 992);
+		do Memory.poke(memAddress+96, 1712);
+		do Memory.poke(memAddress+128, 2728);
+		do Memory.poke(memAddress+160, 8188);
+		do Memory.poke(memAddress+192, 11290);
+		do Memory.poke(memAddress+224, 20473);
+		do Memory.poke(memAddress+256, 20473);
+		do Memory.poke(memAddress+288, 20613);
+		do Memory.poke(memAddress+320, 24707);
+		do Memory.poke(memAddress+352, 16513);
+		do Memory.poke(memAddress+384, 32767);
+		do Memory.poke(memAddress+416, 18889);
+		do Memory.poke(memAddress+448, 18889);
+		do Memory.poke(memAddress+480, 32767);
+		return;
+	}
+	
+	function void spaceShipErase(int location) { //apagar nave do player
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32,0);
+		do Memory.poke(memAddress+64,0);
+		do Memory.poke(memAddress+96,0);
+		do Memory.poke(memAddress+128,0);
+		do Memory.poke(memAddress+160,0);
+		do Memory.poke(memAddress+192,0);
+		do Memory.poke(memAddress+224,0);
+		do Memory.poke(memAddress+256,0);
+		do Memory.poke(memAddress+288,0);
+		do Memory.poke(memAddress+320,0);
+		do Memory.poke(memAddress+352,0);
+		do Memory.poke(memAddress+384,0);
+		do Memory.poke(memAddress+416,0);
+		do Memory.poke(memAddress+448,0);
+		do Memory.poke(memAddress+480,0);
+		return;
+}
+
+	function void spaceShipAlien(int location) {//nave alien
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2016);
+		do Memory.poke(memAddress+32, -1);
+		do Memory.poke(memAddress+64, -385);
+		do Memory.poke(memAddress+96, -16381);
+		do Memory.poke(memAddress+128, -13261);
+		do Memory.poke(memAddress+160, -13261);
+		do Memory.poke(memAddress+192, 24582);
+		do Memory.poke(memAddress+224, 12300);
+		do Memory.poke(memAddress+256, 7128);
+		do Memory.poke(memAddress+288, 19892);
+		do Memory.poke(memAddress+320, 9832);
+		do Memory.poke(memAddress+352, 5072);
+		do Memory.poke(memAddress+384, 2464);
+		do Memory.poke(memAddress+416, 5200);
+		do Memory.poke(memAddress+448, 2720);
+		do Memory.poke(memAddress+480, 1344);
+		return;
+	}
+	
+	function void spaceShipAlienErase(int location) {//apagar nave alien
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0,0);
+		do Memory.poke(memAddress+32,0);
+		do Memory.poke(memAddress+64,0);
+		do Memory.poke(memAddress+96,0);
+		do Memory.poke(memAddress+128,0);
+		do Memory.poke(memAddress+160,0);
+		do Memory.poke(memAddress+192,0);
+		do Memory.poke(memAddress+224,0);
+		do Memory.poke(memAddress+256,0);
+		do Memory.poke(memAddress+288,0);
+		do Memory.poke(memAddress+320,0);
+		do Memory.poke(memAddress+352,0);
+		do Memory.poke(memAddress+384,0);
+		do Memory.poke(memAddress+416,0);
+		do Memory.poke(memAddress+448,0);
+		do Memory.poke(memAddress+480,0);
+		return;
+}
+
+}
+	
+

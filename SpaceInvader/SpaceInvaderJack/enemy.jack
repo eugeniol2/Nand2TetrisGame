@@ -1,0 +1,61 @@
+class enemy{
+	field int enemyPosY;
+	field int enemyPosX;
+	static int posicaoEnemy;
+	static int posicaoXenemy;
+	field int pos;
+	
+	
+//----------------------------Criando objeto----------------------------------------------------------------------------------
+	/** criar um objeto inimigo(alien)	*/
+	
+	constructor enemy new(int y,int x){//criar objeto inimigo.
+		let enemyPosX = x;
+		let enemyPosY = y;
+		let posicaoEnemy = ((enemyPosY*32)+enemyPosX);//posição dele na tela.
+		let posicaoXenemy = enemyPosX;
+		do sprites.spaceShipAlien(posicaoEnemy);//montando a textura dele na tela.
+		return this;
+	}
+		
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+//-------------------------------------------------END----------------------------------------------------------------------//
+
+//--------------------------------Movimento---------------------------------------------------------------------------------//
+	/** movimenta o alien, e verifica se ele chegou no "solo" e o jogo é parado*/
+	
+	method void moveEnemy(){//responsável por mover o inimigo para baixo, eixo y.
+		var int destruir;
+		var int enemyposition;
+		let posicaoEnemy = posicaoEnemy + 96;//proxima posição.
+		do sprites.spaceShipAlienErase(posicaoEnemy - 96);//apagando posição passada.
+		do sprites.spaceShipAlien(posicaoEnemy);//"desenhando" nova posição.
+		if (posicaoEnemy > 7000){//se passar da nave player ele "colide" com o solo e o jogo acaba.
+			while (posicaoEnemy > 7000){			
+			do Output.printInt(1);//enchendo a tela com números 1, mostrando que o jogo acabou.
+			}
+		}
+		return;
+	}
+//--------------------------------END-----------------------------------------------------------------------------------------//
+	
+	
+	method void spaceshipDestroyed(){//método para apagar a nave inimiga quando for atingida.
+		do sprites.spaceShipAlienErase(posicaoEnemy);
+		return;
+	}
+	
+	function int getEnemyX(){//retorna a posição do inimigo.
+		return posicaoXenemy;
+	}
+
+	function void spaceshipDestroy(){//função para apagar a nave inimiga quando for atingida.
+		do sprites.spaceShipAlienErase(posicaoEnemy);
+		return;
+	}
+
+
+}

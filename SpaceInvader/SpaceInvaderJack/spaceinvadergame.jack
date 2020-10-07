@@ -1,0 +1,131 @@
+class spaceinvadergame{
+	
+	field player naveplayer;
+	field enemy inimigo;
+	field int direcao;
+	field int atirar;
+	field int random;
+	field int clock;
+	static boolean aniquilar;//destroi o alienigena acertado
+	
+	
+	
+	constructor spaceinvadergame new(){//cria um objeto jogo.
+		let naveplayer = player.new(224,0);//cria a nave do player na parte inferior da tela.
+		let direcao = 0;//não está se movendo.
+		return this;
+	}
+	
+	method void dispose(){
+		do naveplayer.dispose();
+		do Memory.deAlloc(this);
+		do inimigo.dispose();
+		return;
+	}
+	
+//----------------------------------------AÇÕES-------------------------------------------------------------------------//
+	method void moverNavePlayer(){//verifica se a nave do player está se movendo para alguma direção, ou se atirou.
+		if (direcao = 1){do naveplayer.moverParaEsquerda();}// se 1 então mover para esquerda.
+		if (direcao = 2){do naveplayer.moverParaDireita();}//se 2 então mover para direita.
+		if (atirar = 3){//se 3 então ele atirou.
+			let aniquilar = naveplayer.atirar(); // chamando função e tiro.
+			let atirar = 0;//após efetuado o tiro volta a variável atirar para 0.
+		}		
+		do Sys.wait(5);//pequeno tempo de espera.
+		return;
+	}
+	
+	method void novoInimigo(){//verifica se o inimigo foi destruido.
+		if (aniquilar){//se destruido.
+			do inimigo.spaceshipDestroyed();//executa função para apagar o inimigo da tela, se foi destruido.
+			let aniquilar = false;//ja destruiu a nave, voltar a variável para falso
+			return;
+		}
+		if (~aniquilar){//se não foi destruido o inimigo permanece indo em direção ao "solo", tela inferior.
+			do inimigo.moveEnemy();
+		}
+		return;
+	}
+//----------------------------------------END-----------------------------------------------------------------------------//
+	
+
+//----------------------------------------CLOCK-INTERNO-------------------------------------------------------------------//
+	/** é necessário criar um clock interno para o jogo de forma a permitir que "varias coisas aconteçam ao mesmo tempo", ou seja
+	 sem precisar ficar vísivel que não se pode se mover enquanto uma função está sendo executada. */
+	
+	method void clock(){//regularizador de tempo no jogo, permite que coisas aconteçam "ao mesmo tempo"
+		let clock = clock + 1;//contador do clock.
+		if (clock = 5){//se o clock for 5 ele é resetado.
+			let clock = 0;
+		}
+		if (clock = 2){//se o clock for 2 é "hora" de executar a função novoInimigo().
+			do novoInimigo();
+		}
+		if (clock = 1){//se o clock for 1 é "hora" de executar a função de movimento do player.
+			do moverNavePlayer();
+		}
+		return;
+	}
+//----------------------------------------END----------------------------------------------------------------------------//
+
+//-------------------------------------Função principal do jogo-----------------------------------------------------------//
+/** Permite que o jogo seja "rodado" até que uma tecla de parada seja apertada.
+	Permite que o jogo receba teclas de entrada pelo teclado e baseado nelas execute alguma função.*/
+	
+	method void run(){
+		var char key; // Tecla pressionado pelo usuário.
+		var boolean exit; // variável sair.
+		let exit = false;//variável que mantém o jogo 'rodando' enquanto falso.
+		while (~exit){ //enquanto exit for falso.
+		
+		//esperando uma tecla ser pressionada.
+			if (random > 0){			
+				let random = Random.randRange(30);//numeros randomicos de 0 - 30.
+			}
+			
+			do Sys.wait(5);
+			if (aniquilar){//checando se o inimigo(alien) foi destruido.
+				let random = Random.randRange(30);//numeros randomicos de 0 - 30.
+				do enemy.new(0,random);//criando um novo inimigo com posição X randomica de 0 a 30.
+				do clock();//Atualizando clock.
+				}			
+				
+			while (key=0){//enquanto nenhuma tecla for pressionada.
+				if (aniquilar){//checando se um inimigo(alien) foi destruido.
+					do enemy.new(0,random);//criando um novo inimigo com posição X randomica de 0 a 30.
+					do clock();//Atualizando clock.
+				}
+				
+				let key = Keyboard.keyPressed();//detecta a tecla que foi pressionada	
+				do clock();
+				do Sys.wait(15);
+				}
+				if (key = 81) {let exit = true;} //tecla: q
+				if (key = 130){let direcao = 1;} //tecla: seta esquerda
+				if (key = 132){let direcao = 2;} //tecla: seta direita
+				if (key = 32){let atirar = 3;}   //tecla: espaço
+			while (~(key = 0)){//enquanto a tecla estiver pressionada ele mantem movendo o player.
+				if (aniquilar){//checando se um alien foi destruido
+					if (random < 31){//random sempre será menor que 31, porém para garantir isso eu coloquei um if.
+						let random = Random.randRange(30);//numeros randomicos de 0 - 30
+					}
+					do enemy.new(0,random);//criando um novo inimigo com posição X randomica de 0 a 30.
+					do clock();//Atualizando clock.
+				}
+				let key = Keyboard.keyPressed();//tecla pressionada
+				if (key = 81) {let exit = true;} //q key
+				if (key = 130){let direcao = 1;} //seta esquerda
+				if (key = 132){let direcao = 2;} //seta direita
+				if (key = 32){let atirar = 3;}	//tecla: espaço			
+				do clock();//Atualizando clock.
+				do Sys.wait(20);
+				let direcao = 0;//voltando a direção para 0, para que o player não continue se movendo após soltar a tecla.
+			
+			}
+			
+			
+		}//fechando primeiro while
+		return;
+	}//fechando função run
+//-------------------------------------END-------------------------------------------------------------------//
+}
