@@ -34,7 +34,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo <a href="https://github.co
  
  <img align="center" alt="IgniteModule1" src="https://github.com/eugeniol2/assets/blob/main/CertificadoN2T.png" />
 
-<h2> O que aprendi com este projeto <h2>
+<h2> O que aprendi com este projeto </h2>
   
  <p>
    O curso foi uma incrível oportunidade de conhecer como a "programação" funciona desde sua origem até o assembler, e outros componentes computacionais
