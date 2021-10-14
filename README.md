@@ -27,24 +27,6 @@ na prática e teoria como um computador funciona desde o NAND (peça fundamental
   </ul>
 
 
-
-<h2> Como executar 🚀  </h2>
-
-```bash
-
-    # Clonar o repositório
-    $ git clone https://github.com/eugeniol2/DtMoney
-
-    # Navegar para o diretório
-    $ cd DtMoney
-
-    # Instalar as package
-    $ yarn
-
-    # Rodar o projeto
-    $ yarn start
-```
-
 <h2> Licença ✔️ </h2>
 Esse projeto está sob a licença MIT. Veja o arquivo <a href="https://github.com/eugeniol2/DtMoney/blob/main/LICENSE"> License </a> para mais detalhes.
 
@@ -52,4 +34,9 @@ Esse projeto está sob a licença MIT. Veja o arquivo <a href="https://github.co
  
  <img align="center" alt="IgniteModule1" src="https://github.com/eugeniol2/assets/blob/main/CertificadoN2T.png" />
 
-##
+<h2> O que aprendi com este projeto <h2>
+  
+ <p>
+   O curso foi uma incrível oportunidade de conhecer como a "programação" funciona desde sua origem até o assembler, e outros componentes computacionais
+   tais como memória RAM, disco, etc... por mais que tenha sido desafiador, valeu muito a pena e foi muito gratificante finalizar este curso
+  </p>
