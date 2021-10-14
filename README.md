@@ -12,7 +12,7 @@ na prática e teoria como um computador funciona desde o NAND (peça fundamental
 
 <h2>Descrição 📝</h2>
 <p> O presente projeto é fruto do de todos os conhecimentos adquiridos durante o curso, utilizando tais conhecimentos fui capaz de construir um software 
-"jogo" baseado no space-invaders, utilizando a linguagem "hack", baseada em orientação a objeto, ofertada no curso.
+"jogo" baseado no space-invaders, utilizando a linguagem "jack", baseada em orientação a objeto, ofertada no curso.
 </p>
 
 
